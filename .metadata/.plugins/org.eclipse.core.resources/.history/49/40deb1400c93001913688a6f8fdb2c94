@@ -1,0 +1,12 @@
+package chapter_12_Exception_Handling;
+
+
+public class TestCalsulator {
+
+
+		public static void main (String[] args) {
+		for (int i = 0; i < args.length; i++)
+		System.out.println(args[i]);
+		}
+		}
+	

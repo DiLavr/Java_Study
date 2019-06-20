@@ -11,6 +11,7 @@
 	<classpathentry kind="src" path="chapter_09_Objects_and_Classes"/>
 	<classpathentry kind="src" path="chapter_10_OOP_Thinking"/>
 	<classpathentry kind="src" path="chapter_11_Inheritance_and_Polimorphism"/>
+	<classpathentry kind="src" path="chapter_11_Exception_Handling"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
