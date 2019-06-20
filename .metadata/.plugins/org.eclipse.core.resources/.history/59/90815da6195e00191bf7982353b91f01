@@ -1,0 +1,41 @@
+package circleradius;
+
+/*
+Write a program that reads in the radius and length of a cylinder 
+and computes the area and volume using the following formulas:
+area = radius * radius * Math.PI
+volume = area * length
+SAMPLE RUN:
+Enter the radius and length of a cylinder: 5.5 12
+The area is 95.0331
+The volume is 1140.4
+*/
+import java.util.Scanner;
+
+public class circle {                         
+	   public static void main (String [] args) { 
+		   Scanner scnr = new Scanner(System.in);
+		   double radius = 0;
+		   double length = 0;
+		   double area = 0;
+		   double volume = 0;
+		   
+		   
+		   System.out.println("Input radius: ");
+		   radius = scnr.nextDouble();
+		   System.out.println("Input length: ");
+		   length = scnr.nextDouble();
+		   
+		   area = radius * radius * Math.PI;
+		   
+		   volume = area * length;
+		   
+		   System.out.println("The area is " + area);
+		   System.out.println("The volume is " + volume);
+		   
+		   
+	   }
+	   scnr.close();
+	   
+}
+		

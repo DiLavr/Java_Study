@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;NoFlyList&apos; to &apos;CountOccurrenceOfWords&apos;&#x0D;&#x0A;- Original project: &apos;Chapter 21 -Sets &amp; Maps&apos;&#x0D;&#x0A;- Original element: &apos;NoFlyList&apos;&#x0D;&#x0A;- Renamed element: &apos;CountOccurrenceOfWords&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;NoFlyList&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{NoFlyList.java[NoFlyList" matchStrategy="1" name="CountOccurrenceOfWords" qualified="false" references="true" similarDeclarations="false" stamp="1538940994944" textual="false" version="1.0"/>
+</session>

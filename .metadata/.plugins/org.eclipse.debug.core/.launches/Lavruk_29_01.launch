@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/Intro_in_programming_Y_Daniel_Liang/chapter_29_Weighted_Graphs/extracredit1/Lavruk_29_01.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="extracredit1.Lavruk_29_01"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Intro_in_programming_Y_Daniel_Liang"/>
+</launchConfiguration>

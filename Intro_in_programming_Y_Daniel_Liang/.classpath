@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="chapter_28_Graphs"/>
+	<classpathentry kind="src" path="chapter_29_Weighted_Graphs"/>
+	<classpathentry kind="src" path="Final_exam"/>
+	<classpathentry kind="src" path="chapter_03_Arrays_Basic"/>
+	<classpathentry kind="src" path="chapter_04_Java_Functions"/>
+	<classpathentry kind="src" path="chapter_05_Loops"/>
+	<classpathentry kind="src" path="chapter_06_User_define_methods"/>
+	<classpathentry kind="src" path="chapter_07_Arrays"/>
+	<classpathentry kind="src" path="chapter_09_Objects_and_Classes"/>
+	<classpathentry kind="src" path="chapter_10_OOP_Thinking"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

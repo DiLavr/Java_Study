@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Lavruk_28_10",
+            "request": "launch",
+            "mainClass": "ex_28_10.Lavruk_28_10",
+            "projectName": "Intro_in_programming_Y_Daniel_Liang"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Lavruk_29_01",
+            "request": "launch",
+            "mainClass": "extracredit1.Lavruk_29_01",
+            "projectName": "Intro_in_programming_Y_Daniel_Liang"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - exam",
+            "request": "launch",
+            "mainClass": "exam",
+            "projectName": "Intro_in_programming_Y_Daniel_Liang"
+        }
+    ]
+}

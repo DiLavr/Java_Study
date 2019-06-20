@@ -1,0 +1,22 @@
+// ��������� 2� ���� � ������ � ���������� �������
+
+package chapter_03_Arrays_Basic;
+//import java.util.Scanner;
+
+public class Operator_compareTo {
+   public static void main (String [] args) {
+      String firstString;
+      String secondString;
+
+      firstString  = "rabbits";
+      secondString = "capes";
+
+      if (firstString.compareTo(secondString)<0) {
+         System.out.println (firstString +" " + secondString); }
+         else {
+            System.out.println (secondString + " " + firstString);
+            }
+
+      return;
+   }
+}

@@ -1,0 +1,55 @@
+
+
+/*Rewrite Lab 3.3 by entering the ISBN number as a string.
+
+SAMPLE RUN 1:
+
+Enter the first 9 digits of an ISBN as integer: 013601267
+
+The ISBN-10 number is 0136012671
+
+SAMPLE RUN 2:
+
+Enter the first 9 digits of an ISBN as integer: 013031997
+
+The ISBN-10 number is 013031997X
+ */
+
+import java.util.Scanner;
+public class Lab_4_3 {
+
+
+	public static void main(String[] args) {
+		Scanner scnr = new Scanner(System.in);
+		String isbn = "";
+
+		 // Prompt the user to enter the first 9 digits of a 10-digit ISBN
+		 
+		System.out.print("Enter the first 9 digits of an ISBN as integer: ");
+	    isbn = scnr.next();
+	    
+	    // Transfer String to Integer Array
+	    String isbnArr[] = isbn.split("");
+	     int numArr[] = new int[isbnArr.length];
+	        for (int i = 0; i < isbnArr.length; i++) {
+	            numArr[i] = Integer.parseInt(isbnArr[i]);
+	             //System.out.println(numArr[i]);
+	        }
+	        
+	        
+	      //Complete checkSum  
+	        
+	      int checkSum  = (numArr[0] * 1 + numArr[1] * 2 + numArr[2] * 3 + numArr[3] * 4 + numArr[4] * 5 
+			 + numArr[5] * 6 + numArr[6] * 7 + numArr[7] * 8 + numArr[8] * 9) % 11;  
+	        
+	        
+	    // Output
+	      if (checkSum == 10)
+				System.out.println("The ISBN-10 number is "+ isbn + "X");
+				else
+				System.out.println("The ISBN-10 number is " + isbn + checkSum);
+	    
+		
+		
+	}	
+}

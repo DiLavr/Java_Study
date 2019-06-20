@@ -1,0 +1,71 @@
+/*
+ * Write a program that prompts the user to enter two characters as a 
+ * single input and displays the major and status represented in the characters. 
+ * It is important that the input is a single input, not two separate inputs - 
+ * refer to the samples given below. The first character indicates the major and 
+ * the second is number character 1, 2, 3, or 4, 
+ * which indicates whether a student is a freshman, sophomore, junior, or senior.
+ * 
+ * M: Mathematics
+C: 	
+I: Information Technology
+SAMPLE RUN 1:
+Enter two characters: M1
+Mathematics Freshman
+SAMPLE RUN 2:
+Enter two characters: C3
+Computer Science Junior
+SAMPLE RUN 3:
+Enter two characters: T3
+Invalid Input
+ * 
+ * 
+ * 
+ */
+
+import java.util.Scanner;
+public class Lab_4_2 {
+	public static void main (String [] args) {
+	
+		Scanner scrn = new Scanner(System.in);
+		System.out.println("Enter two characters: " );
+			
+		String student = scrn.next();
+		String studentMajor = null, studentLevel = null;		
+		char major = student.charAt(0);
+		char level = student.charAt(1);
+		
+		if ((major == 'M'||major == 'C'||major == 'I') && (level == '1'||level == '2'||level == '3'||level == '4')) {
+			switch (major)    {
+			case 'M': studentMajor = "Mathematics ";
+			break;
+			case 'C': studentMajor = "Computer Science ";
+			break;
+			case 'I': studentMajor = "Information Technology ";
+			break;
+			default: 
+			break;
+						   }
+					
+			switch (level) {
+			case '1': studentLevel = "Freshman";
+			break;
+			case '2': studentLevel = "Sophomore";
+			break;
+			case '3': studentLevel = "Junior";
+			break;
+			case '4': studentLevel = "Senior";
+			break;
+			default: 
+			break;
+							}
+					
+		System.out.println(studentMajor + studentLevel);
+			
+					}
+		else {
+			
+			System.out.println("Invalid Input");
+		}
+	}
+}
