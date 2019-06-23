@@ -1,0 +1,34 @@
+package chapter_19_Generic;
+
+
+import java.util.ArrayList;
+public class EliminateDuplicates {
+	
+	    public static <E> ArrayList<E> eliminateDuplicates(ArrayList<E> list) {
+	        ArrayList<E> newList = new ArrayList<>(list.size());
+	        for (E aList : list) {
+	            if (!newList.contains(aList)) {
+	                newList.add(aList);
+	            }
+	        }
+	        return newList;
+	    }
+	
+	public static void main(String[] args) {
+		ArrayList<Integer> tenNumbers = new ArrayList<Integer>();
+	    tenNumbers.add(14);
+	    tenNumbers.add(24);
+	    tenNumbers.add(14);
+	    tenNumbers.add(42);
+	    tenNumbers.add(25);
+	    tenNumbers.add(24);
+	    tenNumbers.add(14);
+	    tenNumbers.add(42);
+	    tenNumbers.add(25);
+	    tenNumbers.add(24);
+	    
+	    ArrayList<Integer> newList = eliminateDuplicates(tenNumbers);
+	    
+	    System.out.print("The distinct numbers are: " + newList);
+	}
+}
