@@ -1,0 +1,34 @@
+/** --------> Listing 18.2.4 <--------------
+ * 
+вычислять 2 в степени N c рекурсией
+ * 
+ * @author Cosmopus
+ *
+ */
+import java.util.Scanner;;
+public class Compute2powernN_recurtion {
+
+	//Return factorial for the intut number - recurtion
+	public static long stepen(int n) {
+					
+				 if (n==1) 
+							 return 2;
+			  		else 
+			 			return 2 * stepen(n-1); //ссылка на рекурсию
+		
+	}
+	
+	public static void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	System.out.println("Введите в какой степени вы хотите почитать 2 ");
+	int n = input.nextInt();
+	
+	
+	
+	// Display Factorial
+	System.out.println("2 в степени " + n + " is " + stepen(n));
+	
+}
+	
+	
+}

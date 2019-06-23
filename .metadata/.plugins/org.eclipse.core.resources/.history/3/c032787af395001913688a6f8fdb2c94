@@ -1,0 +1,33 @@
+package chapter_18_Recursion;
+/** --------> Listing 18.2.5 <--------------
+ * 
+��������� x � ������� N � ������� ��������
+ * 
+ * @author Cosmopus
+ *
+ */
+import java.util.Scanner;;
+public class ComputeXpowernN_recurtion2 {
+
+	//Return factorial for the input number - recursion
+	public static long power(int x, int n) {
+					
+				 if (n==1) 
+							 return x;
+			  		else 
+			 			return x * power(x, n-1); //������ �� ��������
+			}
+	
+	public static void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	System.out.println("������� ����� ����� �� ������ �������� � �������");
+	int x = input.nextInt();
+	System.out.println("������� ������� ");
+	int n = input.nextInt();
+	
+	
+	// Display Factorial
+	System.out.println(x + " � ������� " + n + " ��� " + power(x,n));
+	
+	}
+}

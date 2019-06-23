@@ -1,0 +1,35 @@
+package chapter_18_Recurcion_example;
+/** --------> Listing 18.2.4 <--------------
+ * 
+��������� 2 � ������� N c ���������
+ * 
+ * @author Cosmopus
+ *
+ */
+import java.util.Scanner;;
+public class Compute2powernN_recurtion {
+
+	//Return factorial for the input number - recursion
+	public static long stepen(int n) {
+					
+				 if (n==1) 
+							 return 2;
+			  		else 
+			 			return 2 * stepen(n-1); //������ �� ��������
+		
+	}
+	
+	public static void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	System.out.println("Input the number to power it by 2 using recurcion, please:");
+	int n = input.nextInt();
+	
+	input.close();
+	
+	// Display Factorial
+	System.out.println("Power 2 of number" + n + " is " + stepen(n));
+	
+}
+	
+	
+}

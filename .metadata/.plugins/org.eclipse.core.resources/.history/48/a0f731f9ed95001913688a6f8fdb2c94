@@ -1,0 +1,41 @@
+/** --------> Listing 18.2.6 <--------------
+ * 
+1 + 2 + 3 + 4 + n с помощью рекурсии
+ * 
+ * @author Cosmopus
+ *
+ */
+import java.util.Scanner;;
+public class ComputeNgrowing_recurtion {
+
+	//Return factorial for the intut number - recurtion
+	public static long power(int n) {
+					
+				 if (n==1) 
+							 return 1;
+			  		else 
+			 			return n + power(n-1); //ссылка на рекурсию
+			}
+	
+	public static double sumSeries(double m ) {
+		if (m==1)
+			return 1;
+		else 
+			return (1/m) + sumSeries(m-1);
+		
+	}
+	
+	public static void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	System.out.println("¬ведите какое число вы хотите возвести в р€д (1 + 2 + 3 + ... + n): ");
+	int n = input.nextInt();
+
+	
+	
+	// Display Factorial
+	System.out.println(" р€д (1 + 2 + 3 + ... + " + n + "): " + power(n));
+	
+	System.out.println(sumSeries(1));
+	
+	}
+}

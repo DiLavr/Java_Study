@@ -1,0 +1,33 @@
+package chapter_18_Recurcion_example;
+/** --------> Listing 18.2.5 <--------------
+ * 
+вычисл€ть x в степени N с помощью рекурсии
+ * 
+ * @author Cosmopus
+ *
+ */
+import java.util.Scanner;;
+public class ComputeXpowernN_recurtion2 {
+
+	//Return factorial for the intut number - recurtion
+	public static long power(int x, int n) {
+					
+				 if (n==1) 
+							 return x;
+			  		else 
+			 			return x * power(x, n-1); //ссылка на рекурсию
+			}
+	
+	public static void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	System.out.println("¬ведите какое число вы хотите возвести в степень");
+	int x = input.nextInt();
+	System.out.println("¬ведите степень ");
+	int n = input.nextInt();
+	
+	
+	// Display Factorial
+	System.out.println(x + " в степени " + n + " это " + power(x,n));
+	
+	}
+}

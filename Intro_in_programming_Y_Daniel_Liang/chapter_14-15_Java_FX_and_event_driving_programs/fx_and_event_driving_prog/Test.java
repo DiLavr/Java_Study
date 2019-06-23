@@ -16,5 +16,4 @@ public class Test {
  }
 }
 
-class D extends C { 
-}
+class D extends C {}
