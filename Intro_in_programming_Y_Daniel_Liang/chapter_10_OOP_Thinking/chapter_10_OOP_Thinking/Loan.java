@@ -63,29 +63,14 @@ this.depth = d;
     return annualInterestRate; // ������� ���������� �������� ������� ���������
   }
 
-  /** Set a new annualInterestRate */
-  public void setAnnualInterestRate(double annualInterestRate) {
-    this.annualInterestRate = annualInterestRate;
-  }
-
-  /** Return numberOfYears */
-  public int getNumberOfYears() {
-    return numberOfYears;
-  }
-
-  /** Set a new numberOfYears */
-  public void setNumberOfYears(int numberOfYears) {
-    this.numberOfYears = numberOfYears;
-  }
-
   /** Return loanAmount */
   public double getLoanAmount() {
     return loanAmount;
   }
 
-  /** Set a newloanAmount */
-  public void setLoanAmount(double loanAmount) {
-    this.loanAmount = loanAmount;
+  /** Return loan date */
+  public java.util.Date getLoanDate() { // ����� �� ���������� ������� ������� ���������� �����
+    return loanDate;
   }
 
   /** Find monthly payment */
@@ -97,18 +82,33 @@ this.depth = d;
     return monthlyPayment;    
   }
 
+  /** Return numberOfYears */
+  public int getNumberOfYears() {
+    return numberOfYears;
+  }
+
   /** Find total payment */
   public double getTotalPayment() {
     double totalPayment = getMonthlyPayment() * numberOfYears * 12;
     return totalPayment;    
   }
 
-  /** Return loan date */
-  public java.util.Date getLoanDate() { // ����� �� ���������� ������� ������� ���������� �����
-    return loanDate;
-  }
   /** Return overpaying amount **/
   public double overpaying() {
   double overpaying = getTotalPayment() - loanAmount;
   return overpaying; }
+
+  /** Set a new annualInterestRate */
+  public void setAnnualInterestRate(double annualInterestRate) {
+    this.annualInterestRate = annualInterestRate;
+  }
+
+  /** Set a newloanAmount */
+  public void setLoanAmount(double loanAmount) {
+    this.loanAmount = loanAmount;
+  }
+  /** Set a new numberOfYears */
+  public void setNumberOfYears(int numberOfYears) {
+    this.numberOfYears = numberOfYears;
+  }
 }

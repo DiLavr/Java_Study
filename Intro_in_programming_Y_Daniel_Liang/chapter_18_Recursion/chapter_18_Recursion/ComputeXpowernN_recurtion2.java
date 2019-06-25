@@ -9,15 +9,6 @@ x power n using recursion
 import java.util.Scanner;;
 public class ComputeXpowernN_recurtion2 {
 
-	//Return factorial for the input number - recursion
-	public static long power(int x, int n) {
-					
-				 if (n==1) 
-							 return x;
-			  		else 
-			 			return x * power(x, n-1); //������ �� ��������
-			}
-	
 	public static void main(String[] args) {
 	Scanner input = new Scanner(System.in);
 	System.out.println("Enter int: ");
@@ -31,4 +22,13 @@ public class ComputeXpowernN_recurtion2 {
 	System.out.println(x + " power " + n + " is: " + power(x,n));
 	
 	}
+	
+	//Return factorial for the input number - recursion
+	public static long power(int x, int n) {
+					
+				 if (n==1) 
+							 return x;
+			  		else 
+			 			return x * power(x, n-1); //������ �� ��������
+			}
 }

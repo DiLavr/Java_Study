@@ -1,8 +1,8 @@
 package chapter_10_OOP_Thinking;
 public class StackOfIntegers {
+  public static final int DEFAULT_CAPACITY = 16;
   private int[] elements;
   private int size;
-  public static final int DEFAULT_CAPACITY = 16;
 
   /** Construct a stack with the default capacity 16 */
   public StackOfIntegers() {
@@ -14,6 +14,26 @@ public class StackOfIntegers {
     elements = new int[capacity];
   }
 
+  /** Test whether the stack is empty */
+  public boolean empty() {
+    return size == 0;
+  }
+
+  /** Return the number of elements in the stack */
+  public int getSize() {
+    return size;
+  }
+
+  /** Return the top element from the stack */
+  public int peek() {
+    return elements[size - 1];
+  }
+
+  /** Return and remove the top element from the stack */
+  public int pop() {
+    return elements[--size];
+  }
+
   /** Push a new integer into the top of the stack */
   public void push(int value) {
     if (size >= elements.length) {
@@ -23,25 +43,5 @@ public class StackOfIntegers {
     }
 
     elements[size++] = value;
-  }
-
-  /** Return and remove the top element from the stack */
-  public int pop() {
-    return elements[--size];
-  }
-
-  /** Return the top element from the stack */
-  public int peek() {
-    return elements[size - 1];
-  }
-
-  /** Test whether the stack is empty */
-  public boolean empty() {
-    return size == 0;
-  }
-
-  /** Return the number of elements in the stack */
-  public int getSize() {
-    return size;
   }
 }

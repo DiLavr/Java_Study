@@ -9,11 +9,17 @@ public class Lavruk_27_01<K, V> implements MyMap<K, V> {
 	// Define the maximum hash-table size. 1 << 30 is same as 2^30
 	private static int  MAXIMUM_CAPACITY = 1 << 30;
 
-	// Current hash-table capacity. Capacity is a power of 2
-	private int capacity;
-
 	// Define default load factor
 	private static float DEFAULT_MAX_LOAD_FACTOR = 0.5f;
+
+	/** Ensure the hashing is evenly distributed */
+	private static int supplementalHash(int h) {
+		h ^= (h >>> 20) ^ (h >>> 12);
+		return h ^ (h >>> 7) ^ (h >>> 4);
+	}
+
+	// Current hash-table capacity. Capacity is a power of 2
+	private int capacity;
 
 	// Specify a load factor used in the hash table
 	private float loadFactorThreshold;
@@ -102,10 +108,15 @@ public class Lavruk_27_01<K, V> implements MyMap<K, V> {
 		return null;
 	}
 
+	/** Hash function */
+	private int hash(int hashCode) {
+		return supplementalHash(hashCode) & (capacity - 1);
+	}
+
 	@Override /** Return true if this map contains no entries */
 	public boolean isEmpty() {
 		return size == 0;
-	}
+	} 
 
 	@Override /** Return a set consisting of the keys in this map */
 	public java.util.Set<K> keySet() {
@@ -118,6 +129,7 @@ public class Lavruk_27_01<K, V> implements MyMap<K, V> {
 
 		return setKey;
 	}
+
 
 	@Override /** Add an entry (key, value) into the map */
 	public V put(K key, V value) {
@@ -154,7 +166,21 @@ public class Lavruk_27_01<K, V> implements MyMap<K, V> {
 		size++; // Increase size
 
 		return value;
-	} 
+	}
+
+	/** Rehash the map */
+	private void rehash() {
+		java.util.Set<Entry<K, V>> set = entrySet();
+		capacity <<= 1; // Same as capacity *= 2. <= is more efficient	
+		size = 0; // Reset size to 0
+		table.clear(); // Clear the hash table
+		for (int i = 0; i < capacity; i++)
+			table.add(null);
+
+		for (Entry<K, V> entry : set) {
+			put(entry.getKey(), entry.getValue());
+		}
+	}
 
 	@Override /** Remove the entry for the specified key */
 	public void remove(K key) {
@@ -172,62 +198,14 @@ public class Lavruk_27_01<K, V> implements MyMap<K, V> {
 		}
 	}
 
-
-	@Override /** Return the number of entries in this map */
-	public int size() {
-		return size;
-	}
-
-	@Override /** Return a set consisting of values in this map */
-	public java.util.Set<V> values() {
-		java.util.Set<V> set = new java.util.HashSet<>();
-
-		for (int i = 0; i < capacity; i++) {
-			if (table.get(i) != null)
-				set.add(table.get(i).getValue());
-		}
-
-		return set;
-	}
-
-	/** Hash function */
-	private int hash(int hashCode) {
-		return supplementalHash(hashCode) & (capacity - 1);
-	}
-
-	/** Ensure the hashing is evenly distributed */
-	private static int supplementalHash(int h) {
-		h ^= (h >>> 20) ^ (h >>> 12);
-		return h ^ (h >>> 7) ^ (h >>> 4);
-	}
-
-	/** Return a power of 2 for initialCapacity */
-	private int trimToPowerOf2(int initialCapacity) {
-		int capacity = 1;
-		while (capacity < initialCapacity) {
-			capacity <<= 1;
-		}
-
-		return capacity;
-	}
-
 	/** Remove all entries from map */
 	private void removeEntries() {
 		table.clear(); //clear ArrayList
 	}
 
-	/** Rehash the map */
-	private void rehash() {
-		java.util.Set<Entry<K, V>> set = entrySet();
-		capacity <<= 1; // Same as capacity *= 2. <= is more efficient	
-		size = 0; // Reset size to 0
-		table.clear(); // Clear the hash table
-		for (int i = 0; i < capacity; i++)
-			table.add(null);
-
-		for (Entry<K, V> entry : set) {
-			put(entry.getKey(), entry.getValue());
-		}
+	@Override /** Return the number of entries in this map */
+	public int size() {
+		return size;
 	}
 
 	@Override /** Return a string repesentation for this map */
@@ -241,5 +219,27 @@ public class Lavruk_27_01<K, V> implements MyMap<K, V> {
 
 		builder.append("]");
 		return builder.toString();
+	}
+
+	/** Return a power of 2 for initialCapacity */
+	private int trimToPowerOf2(int initialCapacity) {
+		int capacity = 1;
+		while (capacity < initialCapacity) {
+			capacity <<= 1;
+		}
+
+		return capacity;
+	}
+
+	@Override /** Return a set consisting of values in this map */
+	public java.util.Set<V> values() {
+		java.util.Set<V> set = new java.util.HashSet<>();
+
+		for (int i = 0; i < capacity; i++) {
+			if (table.get(i) != null)
+				set.add(table.get(i).getValue());
+		}
+
+		return set;
 	}
 }

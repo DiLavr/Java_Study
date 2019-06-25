@@ -14,11 +14,30 @@ invoked recursively to sort an ever-shrinking subarray.
 import java.util.Arrays;
 
 public class RecursiveSelectionSort {
-	public static void sort(double[] list) {
+	public static void main(String[] args) {
+		
+		double[] list1  =  {2, 3, 5, 8, 1, 9};
+		sort(list1);
+		
+		for (int i=0; i < list1.length; i++ )
+			System.out.print(list1[i] + " ");
+		
+		System.out.println();
+		
+	
+		//output list1	
+		System.out.println(Arrays.toString(list1));
+		
+		
+	}
+
+ public static void sort(double[] list) {
  sort(list, 0, list.length - 1); // Sort the entire list
  }
-
- private static void sort(double[] list, int low, int high) {
+  
+ 
+ 
+private static void sort(double[] list, int low, int high) {
  if (low < high) {
  // Find the smallest number and its index in list[low .. high]
  int indexOfMin = low;
@@ -36,24 +55,5 @@ public class RecursiveSelectionSort {
   sort(list, low + 1, high);
   	}
   }
-  
- 
- 
-public static void main(String[] args) {
-	
-	double[] list1  =  {2, 3, 5, 8, 1, 9};
-	sort(list1);
-	
-	for (int i=0; i < list1.length; i++ )
-		System.out.print(list1[i] + " ");
-	
-	System.out.println();
-	
-
-	//output list1	
-	System.out.println(Arrays.toString(list1));
-	
-	
-}
 
 }

@@ -17,10 +17,87 @@ import java.awt.event.*;
 
 public class Lavruk_28_12 extends JApplet {
 
+ static class NineTailPanel extends JPanel {
+  private static final long serialVersionUID = 1L;
+  private int matrixSize = 3;
+  private int coinSize = 50;
+  private char[] initialNode = new char[matrixSize * matrixSize];
+  private char[] previous = new char[matrixSize * matrixSize];
+  
+  public NineTailPanel() {
+   for (int i = 0; i < initialNode.length; i++) {
+    initialNode[i] = 'H';
+   }
+   previous = null;
+   addMouseListener(new MouseAdapter() {
+    
+    @Override
+    public void mouseReleased(MouseEvent e) {
+     changeState((e.getX() / coinSize) * matrixSize + (e.getY() / coinSize));
+    }
+   });
+  }
+  
+  public NineTailPanel(char[] initialNode, char[] previous) {
+   for (int i = 0; i < initialNode.length; i++) {
+    this.initialNode[i] = initialNode[i];
+    this.previous[i] = previous[i];
+   }
+  }
+  
+  void changeState(int i) {
+   if(initialNode[i] == 'H') {
+    initialNode[i] = 'T';
+   } else {
+    initialNode[i] = 'H';
+   }
+   repaint();
+  }
+  
+  public char[] getInitialNode() {
+   return initialNode;
+  }
+  @Override
+  public Dimension getPreferredSize() {
+   return new Dimension(matrixSize * coinSize + 1, matrixSize * coinSize + 1);
+  }
+  
+  // putting some live to your problem
+  @Override
+  protected void paintComponent(Graphics g) {
+   super.paintComponent(g);
+   g.setFont(new Font("Monospaced", Font.BOLD, 26));
+   for (int i = 0; i < matrixSize; i++) {
+    for (int j = 0; j < matrixSize; j++) {
+     g.drawRect(i * coinSize, j * coinSize, coinSize, coinSize);
+     if((previous != null) && (initialNode[i * matrixSize + j] != previous[i * matrixSize + j])) {
+      g.setColor(Color.GREEN);
+      g.drawString(initialNode[i * matrixSize + j] + "", i * coinSize + coinSize / 3, j * coinSize + 2 * (coinSize / 3));
+      g.setColor(Color.BLUE);
+     } else {
+      g.drawString(initialNode[i * matrixSize + j] + "", i * coinSize + coinSize / 3, j * coinSize + 2 * (coinSize / 3));
+     }
+    }
+   }
+   
+  }
+ }
  private static final long serialVersionUID = 1L;
- private NineTailPanel nineTailPanel = new NineTailPanel();
- private JPanel jPanel1 = new JPanel(new FlowLayout());
+ public static void main(String[] args) {
+  JFrame frame = new JFrame("Lavruk_28_12"); //create Jframe
+  JApplet applet = new Lavruk_28_12(); // new applet
+  frame.add(applet);
+  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //default CLOSE window
+  frame.setSize(600, 800); //size of frame
+  frame.setMinimumSize(new Dimension(frame.getWidth(), frame.getHeight()));
+  frame.setLocationRelativeTo(null);
+  frame.setVisible(true);
+ }
  
+ private NineTailPanel nineTailPanel = new NineTailPanel();
+
+ private JPanel jPanel1 = new JPanel(new FlowLayout());
+
  public Lavruk_28_12() {
 	 
   jPanel1.add(nineTailPanel);
@@ -57,82 +134,5 @@ public class Lavruk_28_12 extends JApplet {
     jPanel1.updateUI();
    }
   });
- }
-
- static class NineTailPanel extends JPanel {
-  private static final long serialVersionUID = 1L;
-  private int matrixSize = 3;
-  private int coinSize = 50;
-  private char[] initialNode = new char[matrixSize * matrixSize];
-  private char[] previous = new char[matrixSize * matrixSize];
-  
-  public NineTailPanel() {
-   for (int i = 0; i < initialNode.length; i++) {
-    initialNode[i] = 'H';
-   }
-   previous = null;
-   addMouseListener(new MouseAdapter() {
-    
-    @Override
-    public void mouseReleased(MouseEvent e) {
-     changeState((e.getX() / coinSize) * matrixSize + (e.getY() / coinSize));
-    }
-   });
-  }
-  
-  public NineTailPanel(char[] initialNode, char[] previous) {
-   for (int i = 0; i < initialNode.length; i++) {
-    this.initialNode[i] = initialNode[i];
-    this.previous[i] = previous[i];
-   }
-  }
-  
-  public char[] getInitialNode() {
-   return initialNode;
-  }
-  
-  void changeState(int i) {
-   if(initialNode[i] == 'H') {
-    initialNode[i] = 'T';
-   } else {
-    initialNode[i] = 'H';
-   }
-   repaint();
-  }
-  // putting some live to your problem
-  @Override
-  protected void paintComponent(Graphics g) {
-   super.paintComponent(g);
-   g.setFont(new Font("Monospaced", Font.BOLD, 26));
-   for (int i = 0; i < matrixSize; i++) {
-    for (int j = 0; j < matrixSize; j++) {
-     g.drawRect(i * coinSize, j * coinSize, coinSize, coinSize);
-     if((previous != null) && (initialNode[i * matrixSize + j] != previous[i * matrixSize + j])) {
-      g.setColor(Color.GREEN);
-      g.drawString(initialNode[i * matrixSize + j] + "", i * coinSize + coinSize / 3, j * coinSize + 2 * (coinSize / 3));
-      g.setColor(Color.BLUE);
-     } else {
-      g.drawString(initialNode[i * matrixSize + j] + "", i * coinSize + coinSize / 3, j * coinSize + 2 * (coinSize / 3));
-     }
-    }
-   }
-   
-  }
-  
-  @Override
-  public Dimension getPreferredSize() {
-   return new Dimension(matrixSize * coinSize + 1, matrixSize * coinSize + 1);
-  }
- }
-
- public static void main(String[] args) {
-  JFrame frame = new JFrame("Lavruk_28_12"); //create Jframe
-  JApplet applet = new Lavruk_28_12(); // new applet
-  frame.add(applet);
-  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //default CLOSE window
-  frame.setSize(600, 800); //size of frame
-  frame.setMinimumSize(new Dimension(frame.getWidth(), frame.getHeight()));
-  frame.setLocationRelativeTo(null);
-  frame.setVisible(true);
  }
 }

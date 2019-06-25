@@ -33,6 +33,12 @@ new Integer(3)};
  printList(stringArray);
  }
 		
+/** Print an array of objects */
+public static void printList(Object[] list) {
+for (int i = 0; i < list.length; i++)
+System.out.print(list[i] + " ");
+System.out.println();
+}
 /** Sort an array of comparable objects */
 public static <E extends Comparable<E>> void sort(E[] list) {
 E currentMin;
@@ -64,12 +70,6 @@ list[currentMinIndex] = list[i];
 list[i] = currentMin;
 }
 }
-}
-/** Print an array of objects */
-public static void printList(Object[] list) {
-for (int i = 0; i < list.length; i++)
-System.out.print(list[i] + " ");
-System.out.println();
 }
 	
 }

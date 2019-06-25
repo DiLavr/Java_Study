@@ -16,6 +16,12 @@ Hint: Declare and use a loop variable.
 
 
 public class ShampooMethod {
+   public static void main (String [] args) {
+      printShampooInstructions(3);
+
+      return;
+   }      
+   
    public static void printShampooInstructions( int numCycles) {
                
   if (numCycles <1) {
@@ -32,11 +38,5 @@ System.out.println("Done.");
 
 return;
 }
-   }      
-   
-   public static void main (String [] args) {
-      printShampooInstructions(3);
-
-      return;
    }
 }

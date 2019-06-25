@@ -14,7 +14,71 @@ import lecture.Poligon;
 
 public class Ex_10 {
 
-	public static void main(String[] args) {
+	private static class Rectangle extends Poligon implements Comparable<Rectangle> {
+        private double width;
+        private double height;
+
+        @SuppressWarnings("unused")
+		public Rectangle() {}
+
+        @SuppressWarnings("unused")
+		public Rectangle(
+                double width, double height) {
+            this.width = width;
+            this.height = height;
+        }
+        public Rectangle(double width, double height, String color, boolean filled) {
+            this.width = width;
+            this.height = height;
+            setColor(color);
+            setFilled(filled);
+        }
+
+        
+        @Override /** Implement compareTo method */
+    	public int compareTo(Rectangle o) {
+    		if (getArea() > o.getArea())
+    			return 1;
+    		else if (getArea() < o.getArea())
+    			return -1;
+    		else
+    			return 0;
+    	}
+        
+
+		@Override /** Return true if both objects are equal */
+    	public boolean equals(Object o) {
+    		return this.compareTo((Rectangle)o) == 0;
+    	}
+
+        /** Return area */
+        public double getArea() {
+            return width * height;
+        }
+@SuppressWarnings("unused")
+public double getHeight() {return height;}   
+          /** Return Perimeter */
+        public double getPerimeter() {
+            return 2 * (width + height);
+        }
+          /** GET & SET for width & height */
+		          @SuppressWarnings("unused")
+				public double getWidth() {return width;}
+          @SuppressWarnings("unused")
+		public void setHeight(double height) {this.height = height;}
+
+        @SuppressWarnings("unused")
+		public void setWidth(double width) {this.width = width;}
+
+        @Override /** Return toString */
+    	public String toString() {
+    		return super.toString() + "\nWidth: " + width + "\nHeight: " + height
+    			+ "\nArea: " + getArea() + "\nPerimeter: " + getPerimeter() + "\n";
+    	}
+
+    }
+
+    public static void main(String[] args) {
 
 	
 		Rectangle r1 = new Rectangle(3, 5, "blue", true);
@@ -30,70 +94,6 @@ public class Ex_10 {
         System.out.println("(r1.equals(r2)): " + r1.equals(r2));
         System.out.println("r1.compareTo(r2): " + r1.compareTo(r2));
 		
-    }
-
-    private static class Rectangle extends Poligon implements Comparable<Rectangle> {
-        private double width;
-        private double height;
-
-        @SuppressWarnings("unused")
-		public Rectangle() {}
-
-        @Override /** Implement compareTo method */
-    	public int compareTo(Rectangle o) {
-    		if (getArea() > o.getArea())
-    			return 1;
-    		else if (getArea() < o.getArea())
-    			return -1;
-    		else
-    			return 0;
-    	}
-        @Override /** Return true if both objects are equal */
-    	public boolean equals(Object o) {
-    		return this.compareTo((Rectangle)o) == 0;
-    	}
-
-        
-        @Override /** Return toString */
-    	public String toString() {
-    		return super.toString() + "\nWidth: " + width + "\nHeight: " + height
-    			+ "\nArea: " + getArea() + "\nPerimeter: " + getPerimeter() + "\n";
-    	}
-        
-
-		@SuppressWarnings("unused")
-		public Rectangle(
-                double width, double height) {
-            this.width = width;
-            this.height = height;
-        }
-
-        public Rectangle(double width, double height, String color, boolean filled) {
-            this.width = width;
-            this.height = height;
-            setColor(color);
-            setFilled(filled);
-        }
-/** GET & SET for width & height */
-          @SuppressWarnings("unused")
-		public double getWidth() {return width;}   
-          @SuppressWarnings("unused")
-		public void setWidth(double width) {this.width = width;}
-          @SuppressWarnings("unused")
-		public double getHeight() {return height;}
-          @SuppressWarnings("unused")
-		public void setHeight(double height) {this.height = height;}
-
-        /** Return area */
-        public double getArea() {
-            return width * height;
-        }
-
-        /** Return Perimeter */
-        public double getPerimeter() {
-            return 2 * (width + height);
-        }
-
     }
 
 }

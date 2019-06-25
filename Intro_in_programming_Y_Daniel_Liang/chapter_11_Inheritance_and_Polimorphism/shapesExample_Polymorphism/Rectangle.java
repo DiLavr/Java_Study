@@ -1,7 +1,14 @@
 package shapesExample_Polymorphism;
 
 public class Rectangle extends GeometricObject {
+	public static void main(String[] args) {
+		Rectangle rectangle = new Rectangle();
+		System.out.println(rectangle);
+		System.out.println("rectangle area: " + rectangle.getArea());
+		System.out.println("rectangle perimeter: " + rectangle.getPerimeter());
+	}
 	private double length;
+
 	private double width;
 
 	public Rectangle() {
@@ -20,20 +27,20 @@ public class Rectangle extends GeometricObject {
 		return length * width;
 	}
 
-	public double getPerimeter() {
-		return 2 * (length + width);
-	}
-
 	public double getLength() {
 		return length;
 	}
 
-	public void setLength(double length) {
-		this.length = length;
+	public double getPerimeter() {
+		return 2 * (length + width);
 	}
 
 	public double getWidth() {
 		return width;
+	}
+
+	public void setLength(double length) {
+		this.length = length;
 	}
 
 	public void setWidth(double width) {
@@ -44,13 +51,6 @@ public class Rectangle extends GeometricObject {
 	public String toString() {
 		return "Rectangle:" + "\nlength: " + length + "\nwidth: " + width
 				+ "\n" + super.toString();
-	}
-
-	public static void main(String[] args) {
-		Rectangle rectangle = new Rectangle();
-		System.out.println(rectangle);
-		System.out.println("rectangle area: " + rectangle.getArea());
-		System.out.println("rectangle perimeter: " + rectangle.getPerimeter());
 	}
 
 }

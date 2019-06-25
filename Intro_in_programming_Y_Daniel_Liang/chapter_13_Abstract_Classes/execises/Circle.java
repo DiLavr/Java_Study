@@ -19,14 +19,19 @@ setColor(color);
 setFilled(filled);
 }
 
-/** Return radius */
-public double getRadius() {
-return radius;
+@Override /** Implement compareTo method */
+public int compareTo(Circle o) {
+if (this.radius > o.radius)
+	return 1;
+else if (this.radius < o.radius)
+	return -1;
+else
+	return 0;
 }
 
-/** Set a new radius */
-public void setRadius(double radius) {
-this.radius = radius;
+@Override 
+public boolean equals(Object o) {
+return this.compareTo((Circle)o) == 0;
 }
 
 @Override /** Return area */
@@ -44,19 +49,14 @@ public double getPerimeter() {
 return 2 * radius * Math.PI;
 }
 
-@Override 
-public boolean equals(Object o) {
-return this.compareTo((Circle)o) == 0;
+/** Return radius */
+public double getRadius() {
+return radius;
 }
 
-@Override /** Implement compareTo method */
-public int compareTo(Circle o) {
-if (this.radius > o.radius)
-	return 1;
-else if (this.radius < o.radius)
-	return -1;
-else
-	return 0;
+/** Set a new radius */
+public void setRadius(double radius) {
+this.radius = radius;
 }
 
 @Override /** Implement the toString method */

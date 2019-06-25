@@ -3,10 +3,15 @@ package assignment1;
 import java.util.Scanner;
 public class Lavruk_18_09 {
 
-	public static String reverseDisplay(String input ){
-        System.out.println (reverse(input));
-        return input;
-    }
+	public static void main(String[] args) {
+		Scanner scrn = new Scanner(System.in);
+		System.out.print("Input your string, that should be reversed: ");
+
+		String s = scrn.nextLine();
+		
+		scrn.close();
+		reverseDisplay(s);
+					}
 	
 	
 	private static String reverse(String input) {
@@ -17,15 +22,10 @@ public class Lavruk_18_09 {
 		return reverse(right) + reverse(left);
 		
 	}
-	public static void main(String[] args) {
-		Scanner scrn = new Scanner(System.in);
-		System.out.print("Input your string, that should be reversed: ");
-
-		String s = scrn.nextLine();
-		
-		scrn.close();
-		reverseDisplay(s);
-					}		
+	public static String reverseDisplay(String input ){
+        System.out.println (reverse(input));
+        return input;
+    }		
 	
 	
 	}

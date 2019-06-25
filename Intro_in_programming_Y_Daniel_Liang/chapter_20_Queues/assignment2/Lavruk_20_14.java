@@ -13,21 +13,6 @@ import java.util.*;
 public class Lavruk_20_14 {
 	//based on Listing 20.9
 	
-	public static void main(String[] args) {
-		// Check number of command-line arguments 
-		if (args.length != 1) {
-			System.out.println("Usage: Java Lavruk_20_14 \"Expressions\"");
-			System.exit(1);
-		}
-
-		try {
-			System.out.println(evaluateExpression(args[0]));
-		}
-		catch (Exception ex) {
-			System.out.println("Wrong expression: " + args[0]);
-		}
-	}
-
 	/** Evaluate an expression */
 	public static int evaluateExpression(String expression) 
 	{
@@ -55,6 +40,36 @@ public class Lavruk_20_14 {
 		return operandStack.pop();
 	}
 
+	/** Inserts blanks*/
+	public static String insertBlanks(String s) {
+		String result = "";
+
+		for (int i = 0; i < s.length(); i++) {
+			if (s.charAt(i) == '+' || s.charAt(i) == '-' ||
+				 s.charAt(i) == '/' || s.charAt(i) == '*')
+				result += " " + s.charAt(i) + " ";
+			else
+				result += s.charAt(i);
+		}
+
+		return result;
+	}
+
+	public static void main(String[] args) {
+		// Check number of command-line arguments 
+		if (args.length != 1) {
+			System.out.println("Usage: Java Lavruk_20_14 \"Expressions\"");
+			System.exit(1);
+		}
+
+		try {
+			System.out.println(evaluateExpression(args[0]));
+		}
+		catch (Exception ex) {
+			System.out.println("Wrong expression: " + args[0]);
+		}
+	}
+
 	/** Process one operator: Apply an operator 
 	  * to the operands in the stack */
 	public static void processAnOperator(
@@ -70,21 +85,6 @@ public class Lavruk_20_14 {
 			  operandStack.push(op2 * op1);
 			  else if (operator == '/')
 			  operandStack.push(op2 / op1);
-	}
-
-	/** Inserts blanks*/
-	public static String insertBlanks(String s) {
-		String result = "";
-
-		for (int i = 0; i < s.length(); i++) {
-			if (s.charAt(i) == '+' || s.charAt(i) == '-' ||
-				 s.charAt(i) == '/' || s.charAt(i) == '*')
-				result += " " + s.charAt(i) + " ";
-			else
-				result += s.charAt(i);
-		}
-
-		return result;
 	}
 }
 

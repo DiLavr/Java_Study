@@ -12,15 +12,15 @@ public class SavingsAccount extends Account {
     }
 
     
+    public String toString() {
+        return "SavingsAccount Balance = $" + mBalance;
+    }
+    
+  
     public void withdraw(double amount) {
         if (mBalance - amount >= OVERDRAFT_LIMIT) {
         	        
         	super.withdraw(amount);
         }
-    }
-    
-  
-    public String toString() {
-        return "SavingsAccount Balance = $" + mBalance;
     }
 }
