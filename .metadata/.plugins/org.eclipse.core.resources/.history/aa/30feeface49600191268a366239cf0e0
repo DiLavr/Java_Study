@@ -1,0 +1,33 @@
+
+import java.util.Scanner;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.LinkedList;
+
+public class Lavruk_22_01_001 {
+
+    public static void main(String[] args) {
+        Scanner scrn = new Scanner(System.in);
+        
+        //Asking user to enter String 
+        System.out.println("Enter a String: ");
+        String userinput = new String();
+        userinput = scrn.nextLine();       
+       
+        //putting String to the array by each element
+        LinkedList<Character> list = new LinkedList<>();
+                for (int i = 0; i < userinput.length(); i++) {
+        	list.add(userinput.charAt(i));
+        }
+        
+        //sorting using collections
+        Collections.sort(list);  
+        
+        //Delete dubls by using HashSet
+        System.out.println("sorted and no dublicats");
+        HashSet<Character> test = new HashSet<>(list);
+        for (Character tt: test) {
+        	System.out.print(tt);
+        }
+            scrn.close();
+    } }
