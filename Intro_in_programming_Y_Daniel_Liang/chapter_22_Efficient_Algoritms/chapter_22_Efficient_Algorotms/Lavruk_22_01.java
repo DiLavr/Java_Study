@@ -33,6 +33,7 @@ public class Lavruk_22_01 {
 		// Delete dubls by using HashSet
 		System.out.println("sorted and no dublicats");
 		HashSet<Character> test = new HashSet<>(list);
+		// Output
 		for (Character tt : test) {
 			System.out.print(tt);
 		}

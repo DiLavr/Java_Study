@@ -1,0 +1,31 @@
+/* Expected output:
+
+The height of tree is -1
+The breadth-first traversal is Tom George Jean Jane Kevin Jen Peter Kim Susan Michael 
+The height of tree1 is 6
+The breadth-first traversal for tree2 is 50 45 59 35 48 51 58 
+The height of tree2 is 3
+
+*/
+
+package chapter_25_BTS;
+
+import java.util.Scanner;
+
+public class Test_25_01 {
+  public static void main(String[] args) {
+	  Lavruk_25_01<String> tree = new Lavruk_25_01<>(); 
+	    System.out.print("The height of tree is " + tree.height());
+	    
+	    Lavruk_25_01<String> tree1 = new Lavruk_25_01<>(new String[]
+	      {"Tom", "George", "Jean", "Jane", "Kevin", "Peter", "Susan", "Jen", "Kim", "Michael"});
+	    System.out.print("\nThe breadth-first traversal is ");
+	    tree1.breadthFirstTraversal();
+	    System.out.print("\nThe height of tree1 is " + tree1.height());
+	    
+	    Lavruk_25_01<Integer> tree2 = new Lavruk_25_01<>(new Integer[]{50, 45, 35, 48, 59, 51, 58});    
+	    System.out.print("\nThe breadth-first traversal for tree2 is ");
+	    tree2.breadthFirstTraversal();
+	    System.out.print("\nThe height of tree2 is " + tree2.height());
+  }
+}
